@@ -26,13 +26,26 @@ enum NetPermissionFlags {
 };
 
 
+static bool HasFlag(const NetPermissionFlags& flags, NetPermissionFlags f)
+{
+    std::bitset<8> z(flags);
+    std::cout << z << ": flags" << std::endl;
+
+    std::bitset<8> x(f);
+    std::cout << x << ": f" << std::endl;
+
+    auto combined = flags & f;
+    std::bitset<8> y(combined);
+    std::cout << y << ": combined" << std::endl;
+
+    return combined == f;
+}
+
 int main()
 {
-    enum NetPermissionFlags flags(PF_ALL);
-    std::cout << flags << std::endl;
+    enum NetPermissionFlags forcerelay(PF_FORCERELAY);
 
-    std::bitset<8> x(flags);
-    std::cout << x << '\n';
+    std::cout << HasFlag(forcerelay, NetPermissionFlags::PF_FORCERELAY) << std::endl;
 
     return 0;
 }
