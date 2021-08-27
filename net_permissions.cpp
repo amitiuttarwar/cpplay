@@ -1,6 +1,8 @@
 #include <iostream>
 #include <bitset>
 
+// bit manipulation in the context of NetPermissionFlags & ServiceFlags
+
 enum NetPermissionFlags {
     PF_NONE = 0,
     // Can query bloomfilter even if -peerbloomfilters is false
