@@ -9,4 +9,7 @@ public:
     ~TxRequestTracker();
 
     void Count(int peer_id) const;
+
+    template <typename T>
+    T GetMax(T a, T b);
 };
