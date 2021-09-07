@@ -5,7 +5,7 @@ class TxRequestTracker {
     const std::unique_ptr<Impl> m_impl;
 
 public:
-    TxRequestTracker(int i);
+    explicit TxRequestTracker(int i);
     ~TxRequestTracker();
 
     void Count(int peer_id) const;

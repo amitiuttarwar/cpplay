@@ -14,13 +14,16 @@ public:
     }
 
     template <typename T>
-    T GetMax(T a, T b) {
-        T result;
-        result = (a > b) ? a : b;
-        return result;
-    }
+    T GetMax(T a, T b);
 
 };
+
+template <typename T>
+T TxRequestTracker::Impl::GetMax(T a, T b) {
+    T result;
+    result = (a > b) ? a : b;
+    return result;
+}
 
 TxRequestTracker::TxRequestTracker(int i)
     : m_impl(std::make_unique<TxRequestTracker::Impl>(i)) {}
